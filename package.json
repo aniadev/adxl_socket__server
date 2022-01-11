@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15",
+    "socket.io": "^4.4.1",
+    "socketio": "^1.0.0",
+    "uuidv4": "^6.2.12"
+  },
+  "scripts": {
+    "dev": "nodemon app.js",
+    "serve": "node app.js"
+  },
+  "name": "ADXLSocketServer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "phamhai-laptop <phamcong.hai.90@gmail.com>",
+  "license": "MIT"
+}
