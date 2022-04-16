@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 30px;
+}
+
+.adxl-data{
+position: relative;
+left: 50px;
+margin-top: 10px;
+}
+.adxl-canvas{
+    position: relative;
+    align-items: center;
+}
+.adxl-canvas canvas {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%)
+}
