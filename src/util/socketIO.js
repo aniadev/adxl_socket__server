@@ -1,4 +1,5 @@
 const { uuid } = require('uuidv4');
+const fs = require('fs');
 // socketio handler
 socketIO = (server) => {
   const io = require('socket.io')(server, {
@@ -22,6 +23,11 @@ socketIO = (server) => {
     });
     socket.on('lightSwitch', (data) => {
       io.emit('lightSwitch', data);
+      fs.writeFile('../../static/data.json', data, function (err) {
+        if (err) {
+          console.log(err);
+        }
+      });
     });
   });
 };
