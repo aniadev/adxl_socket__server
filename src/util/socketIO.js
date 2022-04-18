@@ -9,7 +9,18 @@ socketIO = (server) => {
     },
   });
   io.on('connect', (socket) => {
-    console.log(socket.id);
+    fs.readFile('./static/data.json', 'utf8', (err, jsonData) => {
+      if (err) {
+        console.log(`Error reading file from disk: ${err}`);
+      } else {
+        // parse JSON string to JSON object
+        let data = { ...JSON.parse(jsonData) };
+        if (data) {
+          io.emit('lightSwitch', jsonData);
+          console.log(jsonData);
+        }
+      }
+    });
     socket.on('adxl', (data) => {
       io.emit('adxl', data);
     });
@@ -23,7 +34,7 @@ socketIO = (server) => {
     });
     socket.on('lightSwitch', (data) => {
       io.emit('lightSwitch', data);
-      fs.writeFile('../../static/data.json', data, function (err) {
+      fs.writeFile('./static/data.json', data, function (err) {
         if (err) {
           console.log(err);
         }
